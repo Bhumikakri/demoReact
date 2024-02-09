@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Pencode Build
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pencode Build is a responsive web-based code editor integrated with Firebase authentication and storage. It allows users to create, save, and delete code snippets with a user-friendly interface.
 
-## Available Scripts
 
-In the project directory, you can run:
+# Features
+- **Firebase Authentication: Users can log in using Firebase authentication to access personalized features.
+- **Responsive UI: The user interface is designed to be responsive, ensuring a seamless experience across various devices.
+- **Code Editor: A powerful code editor is integrated, enabling users to write HTML, CSS, and JavaScript code.
+- **Save Code: Users can save their code snippets with a unique name, making it easy to manage and access them later.
+- **Delete Code: The application provides a feature to delete saved code snippets.
+- **Toggle Sidebar: The sidebar can be toggled to provide more space for the code editor.
+## How to Use
+## 1.Authentication:
+- Click on the "Login" button to authenticate using Firebase.
+- If you don't have an account, you can sign up.
+ ## 2.Code Editor:
 
-### `npm start`
+- Use the integrated code editor to write HTML, CSS, and JavaScript code.
+- The editor supports syntax highlighting for a better coding experience.
+## 3.Save Code:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- After writing your code, click the "Save" button.
+- Enter a unique name for your code snippet.
+- The code will be saved for future reference.
+## 4.Delete Code:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- To delete a saved code snippet, navigate to the "Your Works" section.
+- Click on the "Delete" button corresponding to the code snippet you want to delete.
+## 5.Toggle Sidebar:
 
-### `npm test`
+- Click on the toggle button in the sidebar to expand or collapse it, providing more space for the code editor.
+## Technologies Used
+- **React.js:** A JavaScript library for building user interfaces, making Pencode Build a fast and dynamic application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Tailwind CSS:** A utility-first CSS framework that makes styling and designing the application easy and efficient.
 
-### `npm run build`
+- **Firebase Authentication:** Enables secure user authentication using Firebase.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Firebase Firestore:** Provides a scalable and real-time cloud database to store and retrieve user data.
+## Demo
+For a live demo, you can visit Pencode Build (click("https://demo-reactmct.vercel.app/)).

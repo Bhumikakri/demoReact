@@ -8,6 +8,7 @@ const initialState = {
     jsCode: "",
     codeName: "",
   },
+  checked:false,
 };
 
 const codeSlice = createSlice({
@@ -20,9 +21,12 @@ const codeSlice = createSlice({
     setCodeDetails: (state, action) => {
       state.codeDetails = action.payload;
     },
+    setCheckeds:(state, action) => {
+      state.checked = action.payload
+    }
   },
 });
 
-export const { setSavedCodes, setCodeDetails } = codeSlice.actions;
+export const { setSavedCodes, setCodeDetails, setCheckeds } = codeSlice.actions;
 
 export default codeSlice.reducer;

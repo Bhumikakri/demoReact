@@ -40,11 +40,11 @@ const Challenges = () => {
           <img className=" w-full h-full" src={forest} />
         </div>
       </section>
-      <section className=" h-80 bg-gray-700 border-2 border-gray-50">
-        <div>
-          <p>THIS MONTH'S THEME</p>
-          <h4>February 2024 - Right Now!</h4>
-          <h1>Leap Year</h1>
+      <section className=" h-fit p-4 bg-gray-700">
+        <div className=" w-6/12 space-y-3 text-lg">
+          <p className=" text-yellow-400 text-sm">THIS MONTH'S THEME</p>
+          <h4 className=" font-semibold">February 2024 - Right Now!</h4>
+          <h1 className=" text-5xl font-extrabold">Leap Year</h1>
           <p>The February #CodePenChallenge starts now!</p>
           <p>
             2024 is a leap year, a calendar phenomenon that adds an extra day to

@@ -3,9 +3,12 @@ import { auth } from '../Firebase/FireBaseSetup';
 import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import MonacoEditor from "@monaco-editor/react";
-import { setCodeDetails } from "../Redux/Slice";
+import { setCheckeds, setCodeDetails } from "../Redux/Slice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function StartCode() {
+
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -52,7 +55,7 @@ function StartCode() {
     localStorage.setItem(`savedCssCode${id}`, codeDetails.cssCode);
     localStorage.setItem(`savedJsCode${id}`, codeDetails.jsCode);
 
-    // Save code name along with ID in localStorage
+    
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
     const updatedCodes = savedCodes.map((code) =>
       code.id === id
@@ -67,7 +70,10 @@ function StartCode() {
     localStorage.setItem("savedCodes", JSON.stringify(updatedCodes));
 
     navigate("/Main/yourwork");
-    alert("Code saved successfully!");
+    toast.success("Code saved successfully!");
+    dispatch(setCheckeds({checked:true}));
+    localStorage.setItem("checked",true);
+    console.log("checked");
   };
 
   if (auth.currentUser == null) {
@@ -75,19 +81,13 @@ function StartCode() {
   }
 
   return (
-    <div style={{ maxWidth: "100vw", padding: "0rem" }}>
-      <div
-        style={{
-          display: "flex",
-          marginLeft: "8rem",
-          alignItems: "center",
-          justifyContent: "space-between",
-          maxWidth: "80%",
-          height: "2.5rem",
-        }}
+    <div className=" max-w-screen-lg" style={{ maxWidth: "100vw", padding: "0rem" }}>
+      <div className=" flex bg-zinc-900 text-white px-10 justify-between items-center h-10"
       >
+        <div>
+          <span >Enter code name 👉</span>
         <input
-          style={{ width: "8rem", height: "2rem" }}
+        className=" w-32 h-8 text-black"
           type="text"
           placeholder="Enter code name"
           value={codeDetails.codeName}
@@ -97,21 +97,16 @@ function StartCode() {
             )
           }
         />
-
+        </div>
         <h3>{codeDetails.codeName}</h3>
-        <button onClick={handleSaveCode}>Save Code</button>
+        <button className=" cursor-pointer" onClick={handleSaveCode}>Save Code</button>
       </div>
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          maxWidth: "100%",
-          height: "50%",
-        }}
+      <div className=" flex max-w-full h-1/2 gap-4"
       >
         <MonacoEditor
           height="300px"
           language="html"
+          display="html"
           theme="vs-dark"
           value={codeDetails.htmlCode}
           onChange={(value) => handleEditorChange(value, "html")}
@@ -134,7 +129,7 @@ function StartCode() {
         />
       </div>
 
-      <div className="live-preview" style={{ maxWidth: "100%" }}>
+      <div className=" max-w-full">
         <iframe
           title="Live Preview"
           sandbox="allow-scripts"
@@ -149,6 +144,7 @@ function StartCode() {
             </body>
             </html>
           `}
+          
           style={{
             maxWidth: "100%",
             width: "99%",
@@ -157,6 +153,7 @@ function StartCode() {
           }}
         />
       </div>
+      <ToastContainer theme="dark" />
     </div>
   )
 }

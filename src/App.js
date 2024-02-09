@@ -30,20 +30,28 @@ function App() {
               element: <Home />,
             },
             {
-              path: "demo/Search/Pens",
+              path: "/demo/Search/Pens",
               element: <SearchPage />,
             },
             {
-              path: "demo/challenges",
+              path: "/demo/challenges",
               element: <Challenges />,
             },
             {
-              path: "demo/sparks",
+              path: "/demo/sparks",
               element: <Spark />,
+            },
+            {
+              path: "/demo/Signup",
+              element:<SignUp />,
+            },
+            {
+              path: "/demo/Login",
+              element: <Login />,
             },
           ]
         },
-        //after login --------
+        //after login 
         {
           path: "/",
           element: <MainHome />,
@@ -53,24 +61,12 @@ function App() {
               element: <Home />,
             },
             {
-              path: "/Main/Search/Pens",
-              element: <SearchPage />,
-            },
-            {
               path: "/Main/challenges",
               element: <Challenges />,
             },
             {
               path: "/Main/sparks",
               element: <Spark />,
-            },
-            {
-              path: "/Main/Signup",
-              element:<SignUp />,
-            },
-            {
-              path: "/Main/Login",
-              element: <Login />,
             },
             {
               path: "/Main/yourwork",
@@ -88,7 +84,7 @@ function App() {
   ]);
 
   return (
-    <div className="App">
+    <div className="App w-full h-full ">
       <Provider store={store} >
       <RouterProvider router={routes} />
       </Provider>

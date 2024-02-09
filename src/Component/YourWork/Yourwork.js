@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSavedCodes } from "../Redux/Slice";
 
 const Yourwork = () => {
   const dispatch = useDispatch();
-  const savedCodes = useSelector((state) => state.code.savedCodes);
+  const savedCodes = JSON.parse(localStorage.getItem("savedCodes"))
 
   const deleteCodeHandler = (id) => {
     const updatedCodes = savedCodes.filter((code) => code.id !== id);
-    dispatch(setSavedCodes(updatedCodes));
-    localStorage.setItem("savedCodes", JSON.stringify(updatedCodes));
+    localStorage.setItem("savedCodes", JSON.stringify(updatedCodes), () => {
+      // After updating local storage, dispatch action to update Redux state
+      dispatch(setSavedCodes(updatedCodes));
+    });
+    
   };
+  // const varified=localStorage.getItem("checked");
+// console.log(varified);
+  
 
   return (
     <div>
@@ -25,7 +31,7 @@ const Yourwork = () => {
           paddingTop: "1rem",
         }}
       >
-        {savedCodes.map((savedCode) => (
+        { savedCodes.map((savedCode) => (
           <div key={savedCode.id}>
             <div
               style={{
@@ -50,7 +56,7 @@ const Yourwork = () => {
                   <img
                     src={savedCode.image}
                     alt="Preview"
-                    style={{ width: "100%", height: "70px" }}
+                    className=" w-full h-16"
                   />
                   {savedCode.name}
                 </div>
